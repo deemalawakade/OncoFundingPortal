@@ -1,18 +1,77 @@
-﻿@model OncoFundingUtilities.ViewModels.CustomerDetail
-
+﻿@model IEnumerable<OncoFundingUtilities.ViewModels.CustomerDetail>
 @{
-    ViewBag.Title = "GetCustomer";
+    ViewBag.Title = "Home Page";
 }
-
-<h2>GetCustomer</h2>
-
+@*@Html.DisplayForModel()*@
 <style>
     table, th, td {
         border: 1px solid black;
         margin-top: 25px;
     }
 </style>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Email ID
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+    <tr>
 
 
-@Html.DisplayFor(m => m.Id);
+
+
+        <td>
+            @Html.DisplayFor(m => item.Name)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(m => item.EmailId)
+
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(m => item.Address)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(m => item.City)
+
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Phone)
+
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+
+            @*<input id="btnAjaxClick" type="button" onclick="" value="Ajax Call" />*@
+
+        </td>
+    </tr>
+
+    }
+</table>
+
 

@@ -14,14 +14,22 @@ namespace OncoFundingDAL
             
         OncoFundingPortalEntities dbObj = new OncoFundingPortalEntities();
             List<CustomerDetail> d = dbObj.CustomerDetails.ToList();
-
+            OncoFundingUtilities.ViewModels.CustomerDetail customer = new OncoFundingUtilities.ViewModels.CustomerDetail();
             List<OncoFundingUtilities.ViewModels.CustomerDetail> q =
                 new List<OncoFundingUtilities.ViewModels.CustomerDetail>();
 
             foreach (var k in d) {
-                q.Add(new OncoFundingUtilities.ViewModels.CustomerDetail() {Id =k.Id });
 
+                customer.Id = k.Id;
+                customer.Name = k.Name;
+                customer.EmailId = k.EmailId;
+                customer.Address = k.Address;
+                customer.City = k.City;
+                customer.Phone=k.Phone;
+                q.Add(customer);
             }
+           
+               
             return q;
         }
     }

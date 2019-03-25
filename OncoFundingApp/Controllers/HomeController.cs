@@ -8,32 +8,23 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace OncoFundingApp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public string Index()
         {
-            GetCustomer();
-            return View();
+            //GetCustomer();
+            return "abc";
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
         public async Task<ActionResult> GetCustomer()
         {
-           List<OncoFundingUtilities.ViewModels.CustomerDetail> customerInfo = new List<OncoFundingUtilities.ViewModels.CustomerDetail>();
+
+            IEnumerable<OncoFundingUtilities.ViewModels.CustomerDetail> customerInfo= new List<OncoFundingUtilities.ViewModels.CustomerDetail>(); ;
+            //
             using (var client = new HttpClient())
             {
                 var url = "http://localhost:64264/api/values";
@@ -52,7 +43,7 @@ namespace OncoFundingApp.Controllers
                 }
 
             }
-            return View();
+            return View(customerInfo);
         }
     }
 }
