@@ -3,33 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OncoFundingUtilities.ViewModels;
 
 namespace OncoFundingDAL
 {
-   public class FundingPortal
+    public class FundingPortal : IFundingPortal
     {
+        //public List<OncoFundingUtilities.ViewModels.CustomerDetail> GetCustDataDAL()
+        //{
+        //    //call this method in bal layer 
+
+        //OncoFundingPortalEntities dbObj = new OncoFundingPortalEntities();
+        //    List<CustomerDetail> d = dbObj.CustomerDetails.ToList();
+        //    OncoFundingUtilities.ViewModels.CustomerDetail customer = new OncoFundingUtilities.ViewModels.CustomerDetail();
+        //    List<OncoFundingUtilities.ViewModels.CustomerDetail> q =
+        //        new List<OncoFundingUtilities.ViewModels.CustomerDetail>();
+
+        //    foreach (var k in d) {
+
+        //        customer.Id = k.Id;
+        //        customer.Name = k.Name;
+        //        customer.EmailId = k.EmailId;
+        //        customer.Address = k.Address;
+        //        customer.City = k.City;
+        //        customer.Phone=k.Phone;
+        //        q.Add(customer);
+        //    }
+
+
+        //    return q;
+        //}
         public List<OncoFundingUtilities.ViewModels.CustomerDetail> GetCustDataDAL()
         {
-            //call this method in bal layer 
-            
-        OncoFundingPortalEntities dbObj = new OncoFundingPortalEntities();
+
+            OncoFundingPortalEntities dbObj = new OncoFundingPortalEntities();
             List<CustomerDetail> d = dbObj.CustomerDetails.ToList();
             OncoFundingUtilities.ViewModels.CustomerDetail customer = new OncoFundingUtilities.ViewModels.CustomerDetail();
             List<OncoFundingUtilities.ViewModels.CustomerDetail> q =
                 new List<OncoFundingUtilities.ViewModels.CustomerDetail>();
 
-            foreach (var k in d) {
+            foreach (var k in d)
+            {
 
                 customer.Id = k.Id;
                 customer.Name = k.Name;
                 customer.EmailId = k.EmailId;
                 customer.Address = k.Address;
                 customer.City = k.City;
-                customer.Phone=k.Phone;
+                customer.Phone = k.Phone;
                 q.Add(customer);
             }
-           
-               
+
+
             return q;
         }
     }

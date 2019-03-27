@@ -69,6 +69,7 @@
       <DependentUpon>EFModelOncoFunding.edmx</DependentUpon>
     </Compile>
     <Compile Include="FundingPortal.cs" />
+    <Compile Include="IFundingPortal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

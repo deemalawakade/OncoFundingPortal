@@ -15,14 +15,29 @@ namespace OncoFundingPortalAPI.Controllers
     {
         //GET api/values
         List<CustomerDetail> u = new List<CustomerDetail>();
+        IFundingEntities FundingEntities=null;
+
+        public ValuesController()
+        {
+            FundingEntities = new FundingEntities();
+        }
+        //public void Initialization(IFundingEntities funding)
+        //{
+        //    FundingEntities = funding;
+
+
+        //}
         public List<CustomerDetail> Get()
         {
-            FundingEntities funding = new FundingEntities();
-            u = funding.GetCustomerDetail();
+           //FundingEntities funding = new FundingEntities();
+            //u = funding.GetCustomerDetail();
+            u = FundingEntities.GetCustomerDetail();
             return u;
         }
-       
-        
+
+
+
+
         // GET api/values/5
         public string Get(int id)
         {

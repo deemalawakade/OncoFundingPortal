@@ -23,7 +23,7 @@ namespace OncoFundingApp.Controllers
         public async Task<ActionResult> GetCustomer()
         {
 
-            IEnumerable<OncoFundingUtilities.ViewModels.CustomerDetail> customerInfo= new List<OncoFundingUtilities.ViewModels.CustomerDetail>(); ;
+            IEnumerable<OncoFundingUtilities.ViewModels.CustomerDetail> customerInfo= new List<OncoFundingUtilities.ViewModels.CustomerDetail>();
             //
             using (var client = new HttpClient())
             {
