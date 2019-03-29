@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using OncoFundingUtilities.ViewModels;
-
+using System.Data;
 
 namespace OncoFundingPortalAPI.Controllers
 {
@@ -16,22 +16,20 @@ namespace OncoFundingPortalAPI.Controllers
         //GET api/values
         List<CustomerDetail> u = new List<CustomerDetail>();
         IFundingEntities FundingEntities=null;
-
+        
         public ValuesController()
+        { }
+        public ValuesController(IFundingEntities ifunding)
         {
-            FundingEntities = new FundingEntities();
+            this.FundingEntities = ifunding;
         }
-        //public void Initialization(IFundingEntities funding)
-        //{
-        //    FundingEntities = funding;
-
-
-        //}
+      
         public List<CustomerDetail> Get()
         {
            //FundingEntities funding = new FundingEntities();
             //u = funding.GetCustomerDetail();
             u = FundingEntities.GetCustomerDetail();
+         
             return u;
         }
 
