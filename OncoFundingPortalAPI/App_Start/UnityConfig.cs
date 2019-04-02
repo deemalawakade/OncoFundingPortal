@@ -1,8 +1,9 @@
 using OncoFundingBAL;
 using OncoFundingDAL;
-using System.Web.Mvc;
+using System.Configuration;
+using System.Web.Http;
 using Unity;
-using Unity.Mvc5;
+using Unity.WebApi;
 
 namespace OncoFundingPortalAPI
 {
@@ -12,11 +13,18 @@ namespace OncoFundingPortalAPI
         {
 			var container = new UnityContainer();
 
-         
-            container.RegisterType<IFundingEntities, FundingEntities>();
-            container.RegisterType<IFundingPortal, FundingPortal>();
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            // register all your components with the container here
+            // it is NOT necessary to register your controllers
 
+            // e.g. container.RegisterType<ITestService, TestService>();
+           
+            container.RegisterType<IFundingEntities, FundingEntities>("EFDB");
+            container.RegisterType<IFundingEntities, FundingWithADO>("ADO");
+           
+            
+
+            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+          
         }
     }
 }

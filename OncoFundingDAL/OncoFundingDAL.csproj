@@ -70,7 +70,6 @@
     </Compile>
     <Compile Include="FundingPortal.cs" />
     <Compile Include="FundingWithADO.cs" />
-    <Compile Include="IFundingPortal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
